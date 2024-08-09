@@ -71,12 +71,4 @@ class UnsplashAPI {
             .then(response => response.json())
             .then(data => data.results);
     }
-
-    getPhoto(photoId, requestOptions = {}) {
-        const url = `${this.apiUrl}/photos/${photoId}?client_id=${this.accessKey}`;
-        const headers = { ...this.headers, ...requestOptions.headers };
-
-        return fetch(url, { headers })
-            .then(response => response.json());
-    }
 }

@@ -5,11 +5,12 @@ class BromeliaPictInventory {
     }
 
     fetchPhotos(query) {
+        // Buscar fotos en todas las APIs
         let allPhotos = [];
         for (const adapter of this.apiAdapters) {
             allPhotos = allPhotos.concat(adapter.searchPhotos(query));
         }
-
+        // Aplicar la estrategia de ranking
         return this.rankingStrategy.rankPhotosResult(allPhotos);
     }
 
